@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Dailly Report</title>
+    <meta charset="UTF-8" />
+    <style type="text/css">
+        div.report {
+            border: 1px;
+        }
+        ul.itemhead {
+            text-align: center;
+            border-top: 1px #faebd7;
+            background-color: black;
+        }
+
+        ul.itemhead li{
+            float: left;
+            list-style-type: none;
+            background-color: green;
+            border-radius: 2px;
+            padding: 3px;
+            width: 300px;
+            margin: 1px;
+        }
+
+        ul.item {
+            background-color: #faebd7;
+            text-align: center;
+        }
+
+        ul.item li {
+            float: left;
+            list-style-type: none;
+            width: 300px;
+            margin: 1px;
+        }
+    </style>
+</head>
+<body>
+<h1>工作日报</h1>
+
+<h2>日期: ${report.reportDate.format("yyyy-MM-dd")}</h2>
+
+<div class="report">
+    <ul class="itemhead">
+        <li>报告人</li>
+        <li>今日完成</li>
+        <li>明日计划</li>
+        <li>遇到的问题</li>
+    </ul>
+    <div style="clear:both"></div>
+    #{list report.reportItems }
+        <ul class="item">
+            <li>${_.who.name}</li>
+            <li>${_.doneToday}</li>
+            <li>${_.todoTomorrow}</li>
+            <li>${_.issue}</li>
+        </ul>
+        <div style="clear: both"></div>
+    #{/list}
+</div>
+</body>
+</html>

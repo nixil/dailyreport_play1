@@ -1,0 +1,24 @@
+# you describe your data using the YAML notation here
+# and then load them using Fixtures.load("data.yml")
+
+User(Alex):
+    name: 李新
+    email: xli@nwnit.com
+User(Jeff):
+    name: 张振芳
+    email: zfzhang@nwnit.com
+User(Jackie):
+    name: 李路广
+    email: lgli@nwnit.com
+User(XgXu):
+    name: 徐晓光
+    email: xgxu@nwnit.com
+User(Hevy):
+    name: 王振华
+    email: zhwang@nwnit.com
+User(Dancy):
+    name: 郑丹
+    email: dzhang@nwnit.com
+User(Nana):
+    name: 赵娜
+    email: nzhao@nwnit.com

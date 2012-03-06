@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta charset="${_response_encoding}">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/chosen.css'}">
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public/javascripts/chosen.jquery.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        #{get 'moreScripts' /}
+    </head>
+    <body>
+    <div id="wrapper" style="text-align: center">
+        <div id="top" style="background: #a9a9a9;color: #006400;padding: 10px;">
+            <h1>Annanda项目组工作日报</h1>
+        </div>
+        <div id="middle">
+        #{doLayout /}
+        </div>
+        <div id="bottom"></div>
+    </div>
+
+    <script type="text/javascript">
+        $("select").chosen();
+    </script>
+    </body>
+</html>

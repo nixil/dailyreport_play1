@@ -1,0 +1,26 @@
+#{extends 'CRUD/layout.html' /}
+#{set title:'Dailly Report' /}
+#{set 'breadCrumbs'}
+<ul>
+    <li><a href="/admin/">Home</a></li>
+    <li>&gt; <a href="/admin/dailyreports">DailyReports</a></li>
+</ul>
+#{/set}
+<div class="report">
+    <ul class="itemhead">
+        <li>报告人</li>
+        <li>今日完成</li>
+        <li>明日计划</li>
+        <li>遇到的问题</li>
+    </ul>
+    <div style="clear:both"></div>
+#{list items }
+    <ul class="item">
+        <li>${_.who.name}</li>
+        <li>${_.doneToday}</li>
+        <li>${_.todoTomorrow}</li>
+        <li>${_.issue}</li>
+    </ul>
+    <div style="clear: both"></div>
+#{/list}
+</div>
