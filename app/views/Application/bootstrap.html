@@ -44,7 +44,17 @@
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Action
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:addCardList();">Add List</a></li>
+                        </ul>
+                    </li>
                 </ul>
+
             </div><!--/.nav-collapse -->
         </div>
     </div>
@@ -53,88 +63,166 @@
     div.card-board{
 
     }
-    div.card-list{
-        background-color: silver;border-radius: 5px;
+
+    .card-list {
+        background-color: silver;
+        border-radius: 5px;
         box-shadow: 2px 2px #262626;
     }
-    div.card-list-body{
+    .card-list-body{
         min-height: 2em;
+        padding: 0 2px 0 2px;
     }
 
-    div.card-list div.card-list-header{
+    .card-list .card-list-header{
         text-align: center;padding: 2px;
     }
-    div.card-list div.card-list-header h3 a{
+    .card-list .card-list-header .dropdown-toggle{
+        visibility:hidden;
+    }
+    .card-list .card-list-header:hover .dropdown-toggle{
+        visibility:inherit;
+    }
+    .card-list .card-list-header span{
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 27px;
         color: #000000;
     }
-    div.card-list div.card-list-header h3 a:hover{
+    .card-list .card-list-header span:hover{
         color: #ffffff;
     }
+
+    .card-list-footer {
+        padding: 0 2px 2px 2px;
+    }
+
+    .card-list-footer span.label{
+        float: right;
+    }
+
+    .card {
+        list-style: none;
+        margin: 0 0 5px 0;
+    }
+    .card:hover{
+        border: 1px #002a80;
+        box-shadow: 1px 1px 1px 1px #262626;
+    }
+
 </style>
     <div class="container-fluid">
         <div class="row-fluid">
-            <div class="span10" style="height: 800px;">
-                <div class="row-fluid card-board">
-                    <div class="span4 card-list">
+            <div class="span12" style="height: 800px;">
+                <div id="card-board" class="row-fluid card-board">
+                    <div id="first-list" class="span3 card-list">
                         <div class="card-list-header">
-                            <h3>
-                                <a href="#" >第一列哦</a>
-                            </h3>
+                            <span>TODO</span>
+                            <div class="dropdown" id="menu1" style="float: right; padding-right: 3px;">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div  id="firstCardList" class="card-list-body">
-                            <div class="well" >
+                        <div id="firstCardList" class="card-list-body">
+                            <div class="well card" >
                                 <a class="close">&times;</a>
                                 item1
                                 <p>另起一段</p>
                             </div>
-                            <div class="well" >
+                            <div class="well card" >
                                 item2
                             </div>
-                            <div class="well" >
+                            <div class="well card" >
                                 item3
                             </div>
-                            <div class="well" >
+                            <div class="well card" >
                                 item4
                             </div>
                         </div>
+                        <div class="card-list-footer">
+                            <span class="label btn-add-card">New Card</span>
+                        </div>
                     </div>
-                    <div class="span4 card-list">
+                    <div class="span3 card-list">
                         <div class="card-list-header">
-                            <h3>
-                                <a href="#" >第二列哦</a>
-                            </h3>
+                            <span>DOING</span>
+                            <div class="dropdown" id="menu2" style="float: right; padding-right: 3px;">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#menu2">
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                            </div>
                         </div>
                         <div id="secondCardList" class="card-list-body">
-                            <div class="well">
+                            <div class="well card">
                                 item5
                             </div>
                         </div>
+                        <div class="card-list-footer">
+                            <span class="label btn-add-card">New Card</span>
+                        </div>
                     </div>
-                    <div class="span4 card-list">
+                    <div class="span3 card-list">
                         <div class="card-list-header">
-                            <h3>
-                                <a href="#" >第三列哦</a>
-                            </h3>
+                            <span>DONE</span>
+                            <div class="dropdown" id="menu3" style="float: right; padding-right: 3px;">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#menu3">
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="card-list-body">
-                            <div class="well">
+                            <div class="well card">
                                 item6
                             </div>
+                        </div>
+                        <div class="card-list-footer">
+                            <span class="label btn-add-card">New Card</span>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="span2" style="height: 800px; background-color: #008800;">
-                <!--Sidebar content-->
-            </div>
         </div>
+        *{<div class="row-fluid">
+            <div class="span12" style="height: 800px; background-color:#2f96b4;">
+                <div class="btn-group">
+                    <a class="btn dropdown-toggle" data-toggle="dropdown">
+                        Action
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:addCardList();">Add List</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>}*
     </div>
 
 <!-- Le javascript
 ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-*{<script src="../assets/js/jquery.js"></script>
+<!-- Placed at the end of the document so the pages load faster
+<script src="../assets/js/jquery.js"></script>
 <script src="../assets/js/bootstrap-transition.js"></script>
 <script src="../assets/js/bootstrap-alert.js"></script>
 <script src="../assets/js/bootstrap-modal.js"></script>
@@ -146,19 +234,95 @@
 <script src="../assets/js/bootstrap-button.js"></script>
 <script src="../assets/js/bootstrap-collapse.js"></script>
 <script src="../assets/js/bootstrap-carousel.js"></script>
-<script src="../assets/js/bootstrap-typeahead.js"></script>}*
+<script src="../assets/js/bootstrap-typeahead.js"></script>-->
 <script src="@{'/public/javascripts/jquery.js'}" type="text/javascript"></script>
 <script src="@{'/public/jquery-ui/js/jquery-ui-1.8.18.custom.min.js'}" type="text/javascript"></script>
 <script src="@{'/public/bootstrap/js/bootstrap.js'}"></script>
+<script src="@{'/public/jquery-tmpl/jquery.tmpl.min.js'}"></script>
 <script type="text/javascript">
-    $(".card-board").sortable({
-        axis: "x",
-        placeholder: 'dragup span4'
+
+    enableSortOnCardBoard(4);
+    enableSortOnCardList();
+    function enableSortOnCardBoard(spanSize){
+        var _ph = "dragup list-height span"+spanSize;
+        $(".card-board").sortable({
+            axis: "x",
+            placeholder: _ph
+        });
+    }
+
+    function enableSortOnCardList(){
+        $("div.card-list-body").sortable( {
+            connectWith: ".card-list-body",
+            placeholder: "dragup well"
+        });
+    }
+
+    function addCardList(){
+        var currentCardList = $("#card-board > div.card-list");
+        var size = currentCardList.size();
+        var newListData = {};
+        if (4 > size) {
+            newListData.spanSize = 3;
+        } else if (4 == size) {
+            currentCardList.removeClass("span3").addClass("span2");
+            newListData.spanSize = 2;
+        } else if( 6 > size) {
+            newListData.spanSize = 2;
+        } else {
+            alert("No More Space!");
+            return ;
+        }
+        var newCardList = $("#card-list-template").tmpl(newListData);
+        newCardList.find(".btn-add-card").click(function(){
+            var cardListBody = $(this).parent(null).siblings(".card-list-body");
+            addCard(cardListBody);
+        });
+        newCardList.appendTo("#card-board");
+        enableSortOnCardBoard(newListData.spanSize);
+        enableSortOnCardList();
+    }
+
+    function addCard(cardListBody){
+        $("#card-template").tmpl().appendTo(cardListBody);
+    }
+
+    $().ready(function(){
+        $(".card-list-footer > .btn-add-card").click(function(){
+            var cardListBody = $(this).parent(null).siblings(".card-list-body");
+            addCard(cardListBody);
+        });
     });
-    $("div.card-list-body").sortable( {
-        connectWith: ".card-list-body",
-        placeholder: "dragup well"
-    });
+</script>
+<script id="card-list-template" type="text/x-jquery-tmpl">
+    <div class="span{{= spanSize}} card-list">
+        <div class="card-list-header">
+            <span>New List</span>
+            <div class="dropdown" style="float: right; padding-right: 3px;">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-list-body">
+            
+        </div>
+        <div class="card-list-footer">
+            <span class="label btn-add-card">New Card</span>
+        </div>
+    </div>
+</script>
+<script id="card-template" type="text/x-jquery-tmpl">
+    <div class="well card">
+        item6
+    </div>
 </script>
 </body>
 </html>

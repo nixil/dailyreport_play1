@@ -6,7 +6,10 @@ select{
     border: 1px solid #fed22f;
     background: #ffe45c 50% top repeat-x;
     color: #363636;
-    min-height: 3em;
+}
+
+.list-height {
+    min-height: 5em;
 }
 
 div.report {
