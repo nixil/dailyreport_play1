@@ -283,14 +283,39 @@
         enableSortOnCardList();
     }
 
-    function addCard(cardListBody){
-        $("#card-template").tmpl().appendTo(cardListBody);
+    function addCard(cardListBody,content){
+        $("#card-template").tmpl({'content':content}).appendTo(cardListBody);
     }
 
     $().ready(function(){
         $(".card-list-footer > .btn-add-card").click(function(){
-            var cardListBody = $(this).parent(null).siblings(".card-list-body");
-            addCard(cardListBody);
+            var $btn_newCard = $(this);
+            $btn_newCard.hide();
+            var $form = $("#new-card-form-template").tmpl();
+            $form.insertBefore($btn_newCard);
+            var $btnSave = $form.find("input.btn-save");
+            var $input = $form.find("input.new-card-content").focus();
+            var cardListBody = $btn_newCard.parent(null).siblings(".card-list-body");
+            $form.submit(function(){
+                if($input.val()){
+                    addCard(cardListBody, $input.val());
+                    this.reset();
+                }else{
+                    $input.parent().addClass("error");
+                }
+                return false;
+            });
+            $input.blur(function(){
+                if($input.val() == ""){
+                    $btn_newCard.show();
+                    $form.remove();
+                }
+            });
+            /*$btnSave.click(function(){
+                alert("xxx");
+                addCard(cardListBody, $input.val());
+            });*/
+            /*addCard(cardListBody);*/
         });
     });
 </script>
@@ -321,8 +346,17 @@
 </script>
 <script id="card-template" type="text/x-jquery-tmpl">
     <div class="well card">
-        item6
+        {{= content}}
     </div>
 </script>
+<script id="new-card-form-template" type="text/x-jquery-tmpl">
+    <form class="well">
+        <div class="control-group">
+            <input type="text" class="span3 new-card-content" placeholder="Write Card Title Here">
+        </div>
+        <input type="submit" class="btn-primary btn-save" value="Save">
+    </form>
+</script>
+
 </body>
 </html>
